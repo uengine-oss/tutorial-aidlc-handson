@@ -1,0 +1,11 @@
+[
+  {"id": "T001", "lotName": "강남역 공영주차장 2시간권", "destination": "강남역", "price": 6000, "distanceMeters": 250, "durationHours": 2},
+  {"id": "T002", "lotName": "역삼 센터 주차장 2시간권", "destination": "강남역", "price": 5000, "distanceMeters": 600, "durationHours": 2},
+  {"id": "T003", "lotName": "강남 파이낸스 빌딩 주차장 2시간권", "destination": "강남역", "price": 8000, "distanceMeters": 100, "durationHours": 2},
+  {"id": "T004", "lotName": "테헤란 민영주차장 3시간권", "destination": "강남역", "price": 7500, "distanceMeters": 450, "durationHours": 3},
+  {"id": "T005", "lotName": "강남역 지하상가 1시간권", "destination": "강남역", "price": 3500, "distanceMeters": 150, "durationHours": 1},
+  {"id": "T006", "lotName": "서초 외곽 주차장 2시간권", "destination": "강남역", "price": 3000, "distanceMeters": 1800, "durationHours": 2},
+  {"id": "T007", "lotName": "선릉 환승 주차장 2시간권", "destination": "강남역", "price": 4000, "distanceMeters": 1400, "durationHours": 2},
+  {"id": "T101", "lotName": "홍대 공영주차장 2시간권", "destination": "홍대입구역", "price": 4000, "distanceMeters": 300, "durationHours": 2},
+  {"id": "T102", "lotName": "연남 민영주차장 2시간권", "destination": "홍대입구역", "price": 5000, "distanceMeters": 500, "durationHours": 2}
+]

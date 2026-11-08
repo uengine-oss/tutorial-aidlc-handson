@@ -1,0 +1,12 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: reservation-service
+
+reservation:
+  # 승인 마감(초). 이 시간이 지나도 승인이 없으면 자동 취소 (FR3.4, NFR2)
+  approval-timeout-seconds: 180
+  # 만료 검사 주기(ms)
+  expiry-check-ms: 1000

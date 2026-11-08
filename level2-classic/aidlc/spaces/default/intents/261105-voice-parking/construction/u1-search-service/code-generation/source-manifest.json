@@ -1,0 +1,11 @@
+{
+  "stage": "code-generation",
+  "unit": "u1-search-service",
+  "version": 1,
+  "writes": [
+    { "path": "pom.xml" },
+    { "path": "services/u1-search-service/pom.xml" },
+    { "path": "services/u1-search-service/src/main/" },
+    { "path": "services/u1-search-service/src/test/" }
+  ]
+}

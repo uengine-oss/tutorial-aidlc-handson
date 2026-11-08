@@ -1,0 +1,11 @@
+{
+  "stage": "code-generation",
+  "unit": "u5-local-run",
+  "version": 1,
+  "writes": [
+    { "path": "scripts/run-local.sh" },
+    { "path": "scripts/smoke-local.sh" },
+    { "path": "scripts/verify-all.sh" },
+    { "path": "scripts/test/" }
+  ]
+}

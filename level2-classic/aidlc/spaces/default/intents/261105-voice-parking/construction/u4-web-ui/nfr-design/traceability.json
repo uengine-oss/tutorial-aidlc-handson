@@ -1,0 +1,27 @@
+{
+  "stage": "nfr-design",
+  "unit": "u4-web-ui",
+  "upstream_ids": ["NFR1.1","NFR1.2","NFR3.1","NFR3.2","NFR1.3","NFR1.4","NFR6.1","NFR6.2","NFR6.3","NFR6.4","NFR6.5","NFR6.6","NFR6.7","NFR8.1","NFR5.1","NFR4.1","NFR7.1","NFR7.2","NFR8.2","NFR9.1"],
+  "coverage": [
+    { "id": "NFR1.1", "status": "OK", "target": "즉시 반영과 시험 계층 L1·L3 (performance-design.md)" },
+    { "id": "NFR1.2", "status": "OK", "target": "프록시는 통과만, L2 프록시 통합 시험 (performance-design.md)" },
+    { "id": "NFR3.1", "status": "OK", "target": "얇은 처리와 즉시 반영 (performance-design.md)" },
+    { "id": "NFR3.2", "status": "OK", "target": "요청 제한 시간 3초와 근거 (performance-design.md)" },
+    { "id": "NFR1.3", "status": "OK", "target": "단일 틱과 판정 규칙 p99 5ms (performance-design.md)" },
+    { "id": "NFR1.4", "status": "OK", "target": "구독 복구 물러나기와 60초 한도 (performance-design.md)" },
+    { "id": "NFR6.1", "status": "OK", "target": "텍스트로만 렌더링, ESLint와 소스 검색 이중 차단 (security-design.md)" },
+    { "id": "NFR6.2", "status": "OK", "target": "비밀 값 없음 (security-design.md)" },
+    { "id": "NFR6.3", "status": "OK", "target": "결제 프록시 정확 일치와 웹훅 차단 합격 기준 (security-design.md)" },
+    { "id": "NFR6.4", "status": "OK", "target": "세션 ID 처리 (security-design.md)" },
+    { "id": "NFR6.5", "status": "OK", "target": "경계 검증과 응답 형식 확인 (security-design.md)" },
+    { "id": "NFR6.6", "status": "OK", "target": "루프백 바인딩 검사 (security-design.md)" },
+    { "id": "NFR6.7", "status": "OK", "target": "잠금 파일, verify의 마지막 단계 audit:report(종료 코드 0, 보고 전용), 판단 기준 (security-design.md, performance-design.md)" },
+    { "id": "NFR8.1", "status": "OK", "target": "프록시 대상 주소 환경 변수 (security-design.md)" },
+    { "id": "NFR5.1", "status": "OK", "target": "미결 결제 시도 보관 (logical-components.md의 useApp, functional-spec.md UR3.2)" },
+    { "id": "NFR4.1", "status": "OK", "target": "독립 프런트엔드와 프록시 경계 (logical-components.md)" },
+    { "id": "NFR7.1", "status": "OK", "target": "npm 스크립트 정의 verify와 커버리지 범위 (performance-design.md)" },
+    { "id": "NFR7.2", "status": "OK", "target": "npm run verify를 정의했고 상위 명령에 묶는 결정만 체크포인트에서 한다 (performance-design.md)" },
+    { "id": "NFR8.2", "status": "OK", "target": "개발 서버 전용, 배포 없음 (performance-design.md 스크립트 표, logical-components.md)" },
+    { "id": "NFR9.1", "status": "N/A", "target": "코딩 관례와 린트 규칙은 설계 대상이 아니라 코드 생성 단계의 규칙이다 (tech-stack-decisions.md)" }
+  ]
+}

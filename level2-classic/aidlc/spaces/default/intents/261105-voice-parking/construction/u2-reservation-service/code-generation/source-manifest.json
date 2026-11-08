@@ -1,0 +1,9 @@
+{
+  "stage": "code-generation",
+  "unit": "u2-reservation-service",
+  "version": 1,
+  "writes": [
+    { "path": "pom.xml" },
+    { "path": "services/u2-reservation-service/" }
+  ]
+}

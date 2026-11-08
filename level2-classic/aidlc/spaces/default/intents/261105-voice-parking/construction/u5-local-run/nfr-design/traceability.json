@@ -1,0 +1,27 @@
+{
+  "stage": "nfr-design",
+  "unit": "u5-local-run",
+  "upstream_ids": ["NFR8.1","NFR6.2","NFR6.3","NFR6.1","NFR6.4","NFR6.5","NFR6.6","NFR8.7","NFR8.3","NFR8.2","NFR8.4","NFR8.5","NFR8.6","NFR8.8","NFR8.9","NFR7.1","NFR7.2","NFR7.3","NFR9.1","NFR4.1"],
+  "coverage": [
+    { "id": "NFR8.1", "status": "OK", "target": "load_config와 derive_urls: 설정 한 구역, 포트에서 주소 계산 (security-design.md)" },
+    { "id": "NFR6.2", "status": "OK", "target": "환경 구성: env -u로 비밀 값 상속 차단, u3만 비밀 값 (security-design.md)" },
+    { "id": "NFR6.3", "status": "OK", "target": "validate_config와 환경 구성: 루프백 고정, 비루프백·UI_ALLOW_NON_LOOPBACK 거부 (security-design.md)" },
+    { "id": "NFR6.1", "status": "OK", "target": "make_secret: 생성 64자 이상, 사용자 값 32자 이상 (security-design.md)" },
+    { "id": "NFR6.4", "status": "OK", "target": "validate_config와 입력 검증: 포트·중복·비밀 값 형식, eval 금지 (security-design.md)" },
+    { "id": "NFR6.5", "status": "OK", "target": "로그: umask 077, 덮어쓰기, 자체 .gitignore (security-design.md)" },
+    { "id": "NFR6.6", "status": "OK", "target": "프록시 규칙 비간섭과 스모크의 웹훅 미도달 판정 (security-design.md)" },
+    { "id": "NFR8.7", "status": "OK", "target": "연동 스모크 smoke-local.sh와 웹훅 미도달 판정 (security-design.md)" },
+    { "id": "NFR8.3", "status": "OK", "target": "check_ports, wait_ready의 실패 구분과 정리 (security-design.md)" },
+    { "id": "NFR8.2", "status": "OK", "target": "main과 start_service: 한 번 실행으로 순서대로 기동, 포그라운드 대기 (security-design.md)" },
+    { "id": "NFR8.4", "status": "OK", "target": "cleanup: 프로세스 그룹, 한 번만, 유예와 SIGKILL, 포트 확인, 두 번째 신호 무시 (security-design.md)" },
+    { "id": "NFR8.5", "status": "OK", "target": "prepare와 check_prepared, 서비스당 준비 제한 (security-design.md)" },
+    { "id": "NFR8.6", "status": "OK", "target": "usage와 설정 구역 (security-design.md)" },
+    { "id": "NFR8.8", "status": "OK", "target": "watch_services: 기동 뒤 종료 감시 (security-design.md)" },
+    { "id": "NFR8.9", "status": "OK", "target": "wait_ready의 준비 확인 규칙, u4 400 점검 (security-design.md)" },
+    { "id": "NFR7.1", "status": "OK", "target": "시험과 커버리지 측정 설계의 시나리오 목록 (security-design.md)" },
+    { "id": "NFR7.2", "status": "OK", "target": "bash 3.2에서 동작하는 xtrace 커버리지 측정과 분모 규칙 (security-design.md)" },
+    { "id": "NFR7.3", "status": "OK", "target": "verify-all.sh 단계와 부하 경고 (security-design.md)" },
+    { "id": "NFR9.1", "status": "OK", "target": "함수 단위 구성, /bin/bash 3.2 시험, bash -n (security-design.md)" },
+    { "id": "NFR4.1", "status": "OK", "target": "공개 실행 명령과 환경 변수만 사용 (security-design.md의 start_service)" }
+  ]
+}

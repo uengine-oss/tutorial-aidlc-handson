@@ -1,0 +1,14 @@
+{
+  "stage": "domain-design",
+  "upstream_ids": ["US1.1","US2.1","US2.2","US3.1","US3.2","US4.1","US4.2","US5.1"],
+  "coverage": [
+    { "id": "US1.1", "status": "OK", "target": "QueryParser" },
+    { "id": "US2.1", "status": "OK", "target": "Recommendation" },
+    { "id": "US2.2", "status": "OK", "target": "Recommendation" },
+    { "id": "US3.1", "status": "OK", "target": "Payment, Reservation" },
+    { "id": "US3.2", "status": "OK", "target": "Payment, Reservation" },
+    { "id": "US4.1", "status": "OK", "target": "Payment, Reservation, Notification" },
+    { "id": "US4.2", "status": "OK", "target": "Reservation, Notification" },
+    { "id": "US5.1", "status": "N/A", "target": "로컬 실행 스크립트는 비즈니스 컴포넌트가 아니라 패키징·실행 산출물이므로 Units Generation 이후 단계에서 다룬다." }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "lots": [
+    { "lotId": "gangnam-public",  "name": "강남역 공영주차장",     "placeName": "강남역",     "distanceMeters": 120 },
+    { "lotId": "yeoksam-bldg",    "name": "역삼 빌딩 주차장",      "placeName": "강남역",     "distanceMeters": 80 },
+    { "lotId": "teheran",         "name": "테헤란로 주차장",       "placeName": "강남역",     "distanceMeters": 300 },
+    { "lotId": "gangnam-private", "name": "강남 민영 주차장",      "placeName": "강남역",     "distanceMeters": 200 },
+    { "lotId": "sinnonhyeon",     "name": "신논현 주차장",         "placeName": "강남역",     "distanceMeters": 450 },
+    { "lotId": "hongdae-public",  "name": "홍대입구역 공영주차장", "placeName": "홍대입구역", "distanceMeters": 100 },
+    { "lotId": "hongdae-bldg",    "name": "홍대 빌딩 주차장",      "placeName": "홍대입구역", "distanceMeters": 250 }
+  ],
+  "passes": [
+    { "passId": "gangnam-public-1",  "lotId": "gangnam-public",  "hourlyPrice": 3000, "availableHours": 3 },
+    { "passId": "yeoksam-bldg-1",    "lotId": "yeoksam-bldg",    "hourlyPrice": 3500, "availableHours": 2 },
+    { "passId": "teheran-1",         "lotId": "teheran",         "hourlyPrice": 2500, "availableHours": 4 },
+    { "passId": "gangnam-private-1", "lotId": "gangnam-private", "hourlyPrice": 2000, "availableHours": 1 },
+    { "passId": "sinnonhyeon-1",     "lotId": "sinnonhyeon",     "hourlyPrice": 1800, "availableHours": 6 },
+    { "passId": "hongdae-public-1",  "lotId": "hongdae-public",  "hourlyPrice": 2800, "availableHours": 4 },
+    { "passId": "hongdae-bldg-1",    "lotId": "hongdae-bldg",    "hourlyPrice": 2200, "availableHours": 3 }
+  ]
+}

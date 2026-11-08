@@ -1,0 +1,9 @@
+{
+  "stage": "code-generation",
+  "unit": "u3-payment-service",
+  "version": 1,
+  "writes": [
+    { "path": "pom.xml" },
+    { "path": "services/u3-payment-service/" }
+  ]
+}

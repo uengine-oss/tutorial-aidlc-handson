@@ -1,0 +1,33 @@
+{
+  "stage": "code-generation",
+  "upstream_ids": [
+    "FR1.1",
+    "FR1.2",
+    "FR2.1",
+    "FR2.2",
+    "FR2.3",
+    "FR3.1",
+    "FR3.2",
+    "FR3.3",
+    "FR3.4",
+    "FR4.1",
+    "FR4.2",
+    "NFR1",
+    "NFR2"
+  ],
+  "coverage": [
+    { "id": "FR1.1", "status": "OK", "target": "backend/recommendation-service/src/main/java/com/voiceparking/recommendation/service/QueryParser.java" },
+    { "id": "FR1.2", "status": "OK", "target": "backend/recommendation-service/src/test/java/com/voiceparking/recommendation/service/QueryParserTest.java" },
+    { "id": "FR2.1", "status": "OK", "target": "backend/recommendation-service/src/main/java/com/voiceparking/recommendation/service/ScoreCalculator.java" },
+    { "id": "FR2.2", "status": "OK", "target": "backend/recommendation-service/src/test/java/com/voiceparking/recommendation/api/RecommendationApiTest.java" },
+    { "id": "FR2.3", "status": "OK", "target": "backend/recommendation-service/src/main/java/com/voiceparking/recommendation/service/ExplanationGenerator.java" },
+    { "id": "FR3.1", "status": "OK", "target": "backend/payment-service/src/main/java/com/voiceparking/payment/api/PaymentController.java" },
+    { "id": "FR3.2", "status": "OK", "target": "backend/payment-service/src/main/java/com/voiceparking/payment/service/PaymentService.java" },
+    { "id": "FR3.3", "status": "OK", "target": "frontend/tests/PaymentPanel.spec.js" },
+    { "id": "FR3.4", "status": "OK", "target": "backend/reservation-service/src/main/java/com/voiceparking/reservation/service/ExpiryScheduler.java" },
+    { "id": "FR4.1", "status": "OK", "target": "backend/reservation-service/src/main/java/com/voiceparking/reservation/service/ReservationService.java" },
+    { "id": "FR4.2", "status": "OK", "target": "frontend/src/components/ReservationDone.vue" },
+    { "id": "NFR1", "status": "OK", "target": "backend/reservation-service/src/test/java/com/voiceparking/reservation/api/ReservationApiTest.java" },
+    { "id": "NFR2", "status": "OK", "target": "backend/reservation-service/src/test/java/com/voiceparking/reservation/service/ReservationServiceTest.java" }
+  ]
+}

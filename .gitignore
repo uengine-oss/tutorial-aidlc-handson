@@ -1,0 +1,10 @@
+node_modules/
+target/
+dist/
+coverage/
+.local-run/
+.claude/
+*.log
+.env
+.env.*
+.DS_Store

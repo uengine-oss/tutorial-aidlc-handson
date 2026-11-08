@@ -1,0 +1,20 @@
+{
+  "stage": "code-generation",
+  "unit": "u4-web-ui",
+  "version": 1,
+  "writes": [
+    { "path": "services/u4-web-ui/.gitignore" },
+    { "path": "services/u4-web-ui/.prettierignore" },
+    { "path": "services/u4-web-ui/.prettierrc" },
+    { "path": "services/u4-web-ui/eslint.config.js" },
+    { "path": "services/u4-web-ui/index.html" },
+    { "path": "services/u4-web-ui/package-lock.json" },
+    { "path": "services/u4-web-ui/package.json" },
+    { "path": "services/u4-web-ui/vite.config.js" },
+    { "path": "services/u4-web-ui/vite.proxy.js" },
+    { "path": "services/u4-web-ui/vitest.config.js" },
+    { "path": "services/u4-web-ui/scripts/" },
+    { "path": "services/u4-web-ui/src/" },
+    { "path": "services/u4-web-ui/test/" }
+  ]
+}

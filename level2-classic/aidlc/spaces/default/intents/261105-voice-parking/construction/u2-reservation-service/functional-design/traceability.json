@@ -1,0 +1,33 @@
+{
+  "stage": "functional-design",
+  "unit": "u2-reservation-service",
+  "upstream_ids": ["AC3.1.1","AC3.1.2","AC3.1.3","AC3.2.1","AC3.2.2","AC3.2.3","AC4.1.1","AC4.1.2","AC4.1.3","AC4.1.4","AC4.1.5","AC4.2.1","AC4.2.2","AC4.2.3","AC4.2.4"],
+  "coverage": [
+    { "id": "AC3.1.1", "status": "OK", "target": "BR1.5" },
+    { "id": "AC3.1.2", "status": "OK", "target": "BR1.5, BR4.1" },
+    { "id": "AC3.1.3", "status": "OK", "target": "BR1.2, BR1.3" },
+    { "id": "AC3.2.1", "status": "OK", "target": "BR2.1, BR4.1" },
+    { "id": "AC3.2.2", "status": "OK", "target": "BR2.6, BR1.3" },
+    { "id": "AC3.2.3", "status": "OK", "target": "BR2.5" },
+    { "id": "AC4.1.1", "status": "OK", "target": "BR2.1, BR4.1, BR4.3, BR4.6" },
+    { "id": "AC4.1.2", "status": "OK", "target": "BR2.1, BR5.2" },
+    { "id": "AC4.1.3", "status": "N/A", "target": "웹훅 서명 검증과 거부 기록은 delivered by u3-payment-service. 이 서비스는 서명을 보지 않고 서명을 통과한 결과만 받는다" },
+    { "id": "AC4.1.4", "status": "OK", "target": "BR4.3, BR3.3" },
+    { "id": "AC4.1.5", "status": "OK", "target": "BR2.2, BR2.3" },
+    { "id": "AC4.2.1", "status": "OK", "target": "BR2.4, BR4.1" },
+    { "id": "AC4.2.2", "status": "OK", "target": "BR2.3" },
+    { "id": "AC4.2.3", "status": "OK", "target": "BR2.3, BR2.2" },
+    { "id": "AC4.2.4", "status": "OK", "target": "BR2.4, BR5.1" }
+  ],
+  "reverse": [
+    { "id": "BR1.1", "status": "N/A", "target": "예약 생성 요청 형식 검증이라는 기술적 검증 규칙 (FR4.1, FR8.1)" },
+    { "id": "BR1.4", "status": "N/A", "target": "예약 금액과 주차장 이름을 계약 C4 결과로 확정하는 규칙 (FR4.2, US3.1이 사용)" },
+    { "id": "BR2.7", "status": "N/A", "target": "재고를 차감하지 않는다는 요구사항 가정 (requirements.md 가정 4)" },
+    { "id": "BR3.1", "status": "N/A", "target": "세션 식별자 확인이라는 기술적 검증 규칙 (FR8.1)" },
+    { "id": "BR3.2", "status": "N/A", "target": "세션별 예약 격리 규칙 (FR8.1, AC1.1.4는 u1-search-service와 u4-web-ui 소관)" },
+    { "id": "BR4.2", "status": "N/A", "target": "오래된 스냅샷이 최신을 덮지 못하게 하는 계약 C3의 version 규칙 (FR6.1)" },
+    { "id": "BR4.4", "status": "N/A", "target": "푸시 실패 격리라는 기술적 안정성 규칙 (FR6.3)" },
+    { "id": "BR4.5", "status": "N/A", "target": "SSE 연결 유지 신호라는 기술적 규칙 (FR6.1)" },
+    { "id": "BR5.3", "status": "N/A", "target": "인메모리 저장소 제약 (NFR8)" }
+  ]
+}

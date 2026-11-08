@@ -1,0 +1,16 @@
+{
+  "stage": "nfr-requirements",
+  "unit": "u5-local-run",
+  "upstream_ids": ["NFR1","NFR2","NFR3","NFR4","NFR5","NFR6","NFR7","NFR8","NFR9"],
+  "coverage": [
+    { "id": "NFR1", "status": "N/A", "target": "웹훅 수신부터 화면 표시 1초는 delivered by u2, u3, u4. 이 스크립트는 그 경로에 없다" },
+    { "id": "NFR2", "status": "N/A", "target": "180초 자동 취소는 delivered by u2-reservation-service" },
+    { "id": "NFR3", "status": "N/A", "target": "추천 결과 2초는 delivered by u1-search-service" },
+    { "id": "NFR4", "status": "OK", "target": "NFR4.1" },
+    { "id": "NFR5", "status": "N/A", "target": "웹훅 멱등은 delivered by u3-payment-service. 이 스크립트에는 웹훅이 없다" },
+    { "id": "NFR6", "status": "OK", "target": "NFR6.1, NFR6.2, NFR6.3, NFR6.4, NFR6.5, NFR6.6" },
+    { "id": "NFR7", "status": "OK", "target": "NFR7.1, NFR7.2, NFR7.3" },
+    { "id": "NFR8", "status": "OK", "target": "NFR8.1, NFR8.2, NFR8.3, NFR8.4, NFR8.5, NFR8.6, NFR8.7, NFR8.8, NFR8.9" },
+    { "id": "NFR9", "status": "OK", "target": "NFR9.1" }
+  ]
+}

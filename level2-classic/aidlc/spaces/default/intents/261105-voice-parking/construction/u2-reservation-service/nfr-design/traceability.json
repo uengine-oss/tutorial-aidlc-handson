@@ -1,0 +1,230 @@
+{
+  "stage": "nfr-design",
+  "unit": "u2-reservation-service",
+  "upstream_ids": [
+    "NFR1.1",
+    "NFR1.2",
+    "NFR1.3",
+    "NFR1.4",
+    "NFR2.1",
+    "NFR2.2",
+    "NFR6.1",
+    "NFR6.2",
+    "NFR6.3",
+    "NFR6.4",
+    "NFR6.5",
+    "NFR6.6",
+    "NFR8.1",
+    "NFR4.1",
+    "NFR4.2",
+    "NFR4.3",
+    "NFR4.4",
+    "NFR5.1",
+    "NFR5.2",
+    "NFR5.3",
+    "NFR2.3",
+    "NFR2.4",
+    "NFR5.4",
+    "NFR5.5",
+    "NFR5.6",
+    "NFR5.7",
+    "NFR5.8",
+    "NFR1.5",
+    "NFR1.6",
+    "NFR1.7",
+    "NFR1.8",
+    "NFR4.5",
+    "NFR5.9",
+    "NFR5.10",
+    "NFR7.1",
+    "NFR8.2",
+    "NFR9.1"
+  ],
+  "coverage": [
+    {
+      "id": "NFR1.1",
+      "status": "OK",
+      "target": "짧은 임계 구역과 푸시 실행기 분리 (performance-design.md)"
+    },
+    {
+      "id": "NFR1.2",
+      "status": "OK",
+      "target": "메모리 안 처리, 결과 반영 경로의 외부 입출력 없음 (performance-design.md)"
+    },
+    {
+      "id": "NFR1.3",
+      "status": "OK",
+      "target": "구독 시작 시 등록과 최신 스냅샷 읽기를 한 잠금 안에서 (performance-design.md)"
+    },
+    {
+      "id": "NFR1.4",
+      "status": "OK",
+      "target": "u1 호출 전체 마감 1.5초와 세션 잠금 범위 (performance-design.md)"
+    },
+    {
+      "id": "NFR2.1",
+      "status": "OK",
+      "target": "시계 기반 마감과 취소 스케줄러 분리 (performance-design.md, reliability-design.md)"
+    },
+    {
+      "id": "NFR2.2",
+      "status": "OK",
+      "target": "푸시 실행기 분리와 짧은 임계 구역 (performance-design.md)"
+    },
+    {
+      "id": "NFR2.3",
+      "status": "OK",
+      "target": "시계 기반 마감 판정 (reliability-design.md)"
+    },
+    {
+      "id": "NFR2.4",
+      "status": "OK",
+      "target": "Clock 주입 (reliability-design.md)"
+    },
+    {
+      "id": "NFR4.1",
+      "status": "OK",
+      "target": "데모 규모 스레드 구성과 동시 10 세션 시험 (scalability-design.md)"
+    },
+    {
+      "id": "NFR4.2",
+      "status": "OK",
+      "target": "예약별·세션별 세분화된 잠금 (scalability-design.md)"
+    },
+    {
+      "id": "NFR4.3",
+      "status": "OK",
+      "target": "단일 프로세스, 고정 포트 (scalability-design.md)"
+    },
+    {
+      "id": "NFR4.4",
+      "status": "OK",
+      "target": "구독 정리 (scalability-design.md)"
+    },
+    {
+      "id": "NFR5.1",
+      "status": "OK",
+      "target": "판정 기록으로 멱등 (reliability-design.md)"
+    },
+    {
+      "id": "NFR5.2",
+      "status": "OK",
+      "target": "예약별·세션별 직렬화와 검사 순서 (reliability-design.md)"
+    },
+    {
+      "id": "NFR5.3",
+      "status": "OK",
+      "target": "거부와 중복 기록 로그 (reliability-design.md, observability-design.md)"
+    },
+    {
+      "id": "NFR5.4",
+      "status": "OK",
+      "target": "푸시 실패 격리와 쓰기 상한 (reliability-design.md)"
+    },
+    {
+      "id": "NFR5.5",
+      "status": "OK",
+      "target": "u1 호출 마감, 시도 제한, 502 (reliability-design.md, performance-design.md)"
+    },
+    {
+      "id": "NFR5.6",
+      "status": "OK",
+      "target": "전역 예외 처리와 값 교체 방식 상태 변경 (reliability-design.md)"
+    },
+    {
+      "id": "NFR5.7",
+      "status": "OK",
+      "target": "재시작 시 소실 (reliability-design.md)"
+    },
+    {
+      "id": "NFR5.8",
+      "status": "OK",
+      "target": "가용성 목표 없음, 회로 차단기 불필요 (reliability-design.md)"
+    },
+    {
+      "id": "NFR6.1",
+      "status": "OK",
+      "target": "비밀 값 없음과 패턴 검색 시험 (security-design.md)"
+    },
+    {
+      "id": "NFR6.2",
+      "status": "OK",
+      "target": "경계 입력 검증 (security-design.md)"
+    },
+    {
+      "id": "NFR6.3",
+      "status": "OK",
+      "target": "세션 격리 (security-design.md)"
+    },
+    {
+      "id": "NFR6.4",
+      "status": "OK",
+      "target": "인증 없음 (security-design.md)"
+    },
+    {
+      "id": "NFR6.5",
+      "status": "OK",
+      "target": "프록시 미연결과 루프백 바인딩 (security-design.md)"
+    },
+    {
+      "id": "NFR6.6",
+      "status": "OK",
+      "target": "세션 ID 로그 최소화 (security-design.md, observability-design.md)"
+    },
+    {
+      "id": "NFR8.1",
+      "status": "OK",
+      "target": "u1 주소와 포트를 환경 변수로 주입 (security-design.md)"
+    },
+    {
+      "id": "NFR1.5",
+      "status": "OK",
+      "target": "상태 확인 경로 (observability-design.md)"
+    },
+    {
+      "id": "NFR1.6",
+      "status": "OK",
+      "target": "요청 로그 필터 (observability-design.md)"
+    },
+    {
+      "id": "NFR1.7",
+      "status": "OK",
+      "target": "오류 로그 (observability-design.md)"
+    },
+    {
+      "id": "NFR1.8",
+      "status": "OK",
+      "target": "푸시 로그와 지연 시간 기록 (observability-design.md)"
+    },
+    {
+      "id": "NFR4.5",
+      "status": "OK",
+      "target": "패키지 경계와 Notification 잎 구조 (scalability-design.md, logical-components.md)"
+    },
+    {
+      "id": "NFR5.9",
+      "status": "OK",
+      "target": "상태 전이 로그 (observability-design.md)"
+    },
+    {
+      "id": "NFR5.10",
+      "status": "OK",
+      "target": "거부·중복 로그 (observability-design.md)"
+    },
+    {
+      "id": "NFR7.1",
+      "status": "OK",
+      "target": "병합 전 mvn verify 품질 게이트 (reliability-design.md)"
+    },
+    {
+      "id": "NFR8.2",
+      "status": "OK",
+      "target": "Docker 없이 로컬 실행, 루프백 바인딩과 환경 변수 주입 (security-design.md)"
+    },
+    {
+      "id": "NFR9.1",
+      "status": "N/A",
+      "target": "Java 코딩 관례는 설계 대상이 아니라 코드 생성 단계의 규칙이다 (tech-stack-decisions.md)"
+    }
+  ]
+}

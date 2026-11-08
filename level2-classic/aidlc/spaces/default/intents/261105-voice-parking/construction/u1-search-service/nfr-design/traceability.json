@@ -1,0 +1,21 @@
+{
+  "stage": "nfr-design",
+  "unit": "u1-search-service",
+  "upstream_ids": ["NFR3.1","NFR3.2","NFR3.3","NFR6.1","NFR6.2","NFR6.3","NFR6.4","NFR8.1","NFR4.1","NFR4.2","NFR2.1","NFR2.2","NFR2.3","NFR2.4"],
+  "coverage": [
+    { "id": "NFR3.1", "status": "OK", "target": "시작 시 메모리 적재와 요청당 메모리 계산 (performance-design.md)" },
+    { "id": "NFR3.2", "status": "OK", "target": "passId 해시맵 조회 (performance-design.md)" },
+    { "id": "NFR3.3", "status": "OK", "target": "시작 시 메모리 적재, 요청 중 입출력 없음 (performance-design.md)" },
+    { "id": "NFR6.1", "status": "OK", "target": "비밀 값 없음 설계와 패턴 검색 시험 (security-design.md)" },
+    { "id": "NFR6.2", "status": "OK", "target": "경계 입력 검증 (security-design.md)" },
+    { "id": "NFR6.3", "status": "OK", "target": "입력 원문 비반사 (security-design.md)" },
+    { "id": "NFR6.4", "status": "OK", "target": "인증·인가 없음과 내부 경로 분리 (security-design.md)" },
+    { "id": "NFR8.1", "status": "OK", "target": "포트를 환경 변수로 주입 (security-design.md)" },
+    { "id": "NFR4.1", "status": "OK", "target": "기본 서블릿 스레드 풀과 동시 10건 시험 (scalability-design.md)" },
+    { "id": "NFR4.2", "status": "OK", "target": "무상태 설계 (scalability-design.md)" },
+    { "id": "NFR2.1", "status": "OK", "target": "빨리 실패하는 적재 (reliability-design.md)" },
+    { "id": "NFR2.2", "status": "OK", "target": "전역 예외 처리 (reliability-design.md)" },
+    { "id": "NFR2.3", "status": "OK", "target": "C4 읽기 전용 멱등 (reliability-design.md)" },
+    { "id": "NFR2.4", "status": "OK", "target": "재시작으로 복구, 회로 차단기 불필요 (reliability-design.md)" }
+  ]
+}

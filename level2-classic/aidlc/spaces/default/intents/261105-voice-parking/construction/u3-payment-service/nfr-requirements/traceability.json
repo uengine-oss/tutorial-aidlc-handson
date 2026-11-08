@@ -1,0 +1,16 @@
+{
+  "stage": "nfr-requirements",
+  "unit": "u3-payment-service",
+  "upstream_ids": ["NFR1","NFR2","NFR3","NFR4","NFR5","NFR6","NFR7","NFR8","NFR9"],
+  "coverage": [
+    { "id": "NFR1", "status": "OK", "target": "NFR1.1, NFR1.2, NFR1.3, NFR1.4, NFR1.5, NFR1.6, NFR1.7, NFR1.8, NFR1.9" },
+    { "id": "NFR2", "status": "N/A", "target": "180초 자동 취소는 u2-reservation-service가 맡는다. 이 서비스는 취소 경로에 없고 지연 시나리오(DELAY)로 재현만 한다" },
+    { "id": "NFR3", "status": "N/A", "target": "추천 결과 2초 이내는 u1-search-service가 맡는다. 이 서비스는 추천 경로에 없다" },
+    { "id": "NFR4", "status": "OK", "target": "NFR4.1, NFR4.2, NFR4.3, NFR4.4, NFR4.5" },
+    { "id": "NFR5", "status": "OK", "target": "NFR5.1, NFR5.2, NFR5.3, NFR5.4, NFR5.5, NFR5.6, NFR5.7, NFR5.8, NFR5.9, NFR5.10, NFR5.11, NFR5.12, NFR5.13, NFR5.14" },
+    { "id": "NFR6", "status": "OK", "target": "NFR6.1, NFR6.2, NFR6.3, NFR6.4, NFR6.5, NFR6.6, NFR6.7, NFR6.8" },
+    { "id": "NFR7", "status": "OK", "target": "NFR7.1" },
+    { "id": "NFR8", "status": "OK", "target": "NFR8.1, NFR8.2" },
+    { "id": "NFR9", "status": "OK", "target": "NFR9.1" }
+  ]
+}

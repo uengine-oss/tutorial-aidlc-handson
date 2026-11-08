@@ -1,0 +1,1 @@
+mvn -q verify && npm --prefix services/u4-web-ui run verify

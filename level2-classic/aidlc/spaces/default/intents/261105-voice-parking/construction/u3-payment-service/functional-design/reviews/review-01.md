@@ -1,0 +1,33 @@
+## Review
+
+**Verdict:** READY
+**Reviewer:** aidlc-architecture-reviewer-agent
+**Date:** 2026-11-07T13:30:10Z
+**Iteration:** 1
+**Verdict Dictated:** no
+
+### Findings
+
+| ID | Severity | Location | Finding | Required action | Status |
+|---|---|---|---|---|---|
+| R-01 | Major | aidlc/spaces/default/intents/261105-voice-parking/construction/u3-payment-service/functional-design/rules.md > BR1.2, BR1.3 / functional-spec.md > 워크플로 W1 | 같은 `(sessionId, idempotencyKey)`의 요청이 동시에 두 건 들어올 때(더블 클릭 등 멱등 키의 대표 사용 사례)의 직렬화 규칙이 없다. 웹훅은 BR3.4에서 "같은 eventId의 처리(이벤트 조회, u2 호출, 기록)는 한 번에 하나씩"으로 명시했지만 결제 요청에는 같은 장치가 없다. 한 요청은 u2에서 201을 받아 "Payment 저장 → 모의 PG 요청"으로 가고, 다른 요청은 거의 동시에 200을 받는데 BR1.3은 "없으면(…) 그 예약의 Payment를 이때 만들되 예약이 결제 대기(PENDING_PAYMENT)일 때만 모의 PG를 요청한다"고 한다. 200 쪽 요청이 Payment 저장 전에 조회하면 둘 다 Payment를 만들고 모의 PG를 두 번 요청할 수 있다. entities.md는 `reservationId`와 `(sessionId, idempotencyKey)`를 유일하다고 하므로 한쪽은 제약 위반(500)이 되거나, 제약이 없으면 승인 알림이 두 번 나간다("한 Payment에 알림은 한 번만"이 아니라 한 예약에 두 Payment). | `(sessionId, idempotencyKey)` 단위로 "Payment 조회 또는 생성과 모의 PG 요청"을 원자적으로(키별 잠금 또는 putIfAbsent) 처리한다고 BR1.3에 쓴다. 모의 PG 요청은 PgRequest가 이미 있으면 다시 하지 않는다는 조건도 넣는다. 시험 기준 요약에 "같은 키 동시 3건: u2 호출 결과와 무관하게 Payment 1건, 모의 PG 요청 1회" 장면을 추가한다. | New |
+| R-02 | Major | aidlc/spaces/default/intents/261105-voice-parking/construction/u3-payment-service/functional-design/rules.md > BR3.5 / entities.md > Payment constraints / functional-spec.md > 상태 머신: Payment | BR3.5는 u2가 REJECTED를 돌려주면 "Payment.status를 IGNORED로 바꾸고"라고만 한다. entities.md는 "status는 REQUESTED에서 시작해 APPROVED, FAILED, IGNORED 중 하나로 한 번만 바뀐다. 이후에는 바뀌지 않는다"고 하고, 상태 머신은 REQUESTED에서만 전이를 그린다. 그런데 이미 APPROVED인 Payment에 새 eventId의 웹훅이 오는 경우(서명이 맞고 paymentId가 알려진 경우)는 u2가 CONFIRMED 예약에 대해 REJECTED를 돌려주므로(C5: "REJECTED는 이미 확정되었거나 취소되어") BR3.5를 그대로 따르면 APPROVED가 IGNORED로 덮어써져 엔티티 제약과 충돌한다. 상태 표의 "모든 상태 \| 이미 처리한 eventId" 행만 있고, "REQUESTED가 아닌 Payment + 새 eventId" 행이 없다. | 상태 표에 "APPROVED/FAILED/IGNORED + 새 eventId" 행을 추가하고 규칙을 정한다(예: u2는 부르되 REJECTED여도 Payment.status는 그대로 두고 WebhookEvent만 IGNORED로 기록, 또는 u2를 부르지 않고 200 IGNORED). 시험 기준 요약에 해당 장면을 넣는다. | New |
+| R-03 | Minor | aidlc/spaces/default/intents/261105-voice-parking/construction/u3-payment-service/functional-design/rules.md > BR3.7, BR3.5, BR3.6 | 150ms 예산은 "(u2가 정상 응답하는 경우)"로 한정되어 있어 느린 u2 경우를 완전히 빠뜨리지는 않았다. 그러나 (a) BR3.5의 호출은 제한 시간 2초에 200ms 간격 재시도 2회라 최악의 응답 시간이 약 6.4초(2s×3+0.2s×2)이고 이는 NFR1의 1초를 넘는데 BR3.6은 "502, 승인 유실, 180초 뒤 자동 취소"만 정상으로 본다고 쓸 뿐 지연 구간 자체는 허용 범위라고 적지 않았다. (b) 이 지연 동안 BR3.4의 같은 eventId 직렬화 잠금이 잡혀 있어 중복 웹훅도 같이 기다린다. (c) 150ms가 u2의 호출·푸시 시간(u2 code-summary: 결과 반영 최댓값 84ms, 푸시 113ms)을 포함하는지, 시험이 실제 u2인지 가짜 u2인지 명시가 없다. C3는 "U3 웹훅 처리 150ms, U2 반영과 푸시 150ms"를 별개 구간으로 나눴는데 BR3.7은 "예약 서비스 반영 완료까지"라 구간이 겹쳐 읽힌다. | BR3.7에 측정 구간(u2 응답 수신까지 포함 여부)과 시험 대역(가짜 u2의 응답 지연)을 못 박는다. "u2 저하 시에는 예산 밖이며 최악 약 6.4초, 이를 받아들인다"를 BR3.6 또는 BR3.7에 명시한다. | New |
+| R-04 | Minor | aidlc/spaces/default/intents/261105-voice-parking/construction/u3-payment-service/functional-design/rules.md > BR1.2, BR1.4 / contract-summary.md > 오류, 제한 시간, 재시도 정리 | U4→U3 결제 요청(C2)의 제한 시간이 2초이고 U3→U2 예약 생성(C5)의 제한 시간도 2초(BR1.2 "제한 시간 2초")라 u2가 느리면 U3가 502로 응답하기 전에 U4가 먼저 시간 초과가 된다. 502 UPSTREAM_FAILED가 사용자에게 닿지 않는 경로가 생긴다(복구는 같은 키 재요청이라 안전하지만 정상 동작으로 기술되지 않음). | 이 중첩 시간 초과를 알려진 제약으로 한 줄 기록하거나 U3의 u2 호출 제한 시간을 C2보다 짧게(예: 1.5초) 정한다. | New |
+| R-05 | Minor | aidlc/spaces/default/intents/261105-voice-parking/construction/u3-payment-service/functional-design/rules.md > BR2.1, BR2.2 / functional-spec.md > 시험 기준 요약 | 모의 PG 설계에서 TDD 시작점이 모호하다. (a) DELAY 기본 200초, APPROVE "수십 ms 안에"를 시험하려면 지연 스케줄러와 시계를 주입해야 하는데(u2는 주입 시계를 썼다) 이 설계는 명시하지 않는다. (b) 모의 PG가 "이 서비스의 웹훅 주소로 실제 HTTP 호출"하는 대상 주소(자기 포트/호스트)를 어떤 설정으로 정하는지 없다. (c) 자기 호출이 연결 거부나 오류로 실패할 때 "다시 보내지 않는다"만 있고 로그를 남기는지는 없어 BR5.1의 재시작 손실과 함께 조용한 유실이 된다. (d) APPROVE·FAIL에서 mockDelaySeconds가 무시되는지가 BR1.1(검증만)과 BR2.1(DELAY만 언급)에서 암묵적이다. | 모의 PG의 스케줄러·시계 주입, 웹훅 주소 설정 키, 자기 호출 실패 시 오류 로그, APPROVE·FAIL에서 mockDelaySeconds 무시를 BR2.1에 한 줄씩 추가한다. | New |
+| R-06 | Minor | aidlc/spaces/default/intents/261105-voice-parking/construction/u3-payment-service/functional-design/rules.md > BR3.1, BR3.3, BR3.6 | 보안 경계의 작은 빈틈이다. (a) 요청 본문 크기 상한이 없어 서명 검증 전에 임의 크기의 본문을 읽고 HMAC을 계산한다. (b) `occurredAt`은 형식만 보고 최신성을 보지 않아 서명된 오래된 이벤트의 재생은 eventId 기록(인메모리, 재시작 시 소멸)에만 의존한다. 재시작 뒤에는 paymentId도 사라져 404라 영향은 작다. (c) BR3.6은 u2의 404 NOT_FOUND 같은 확정적 오류도 502로 바꾸는데, 실제 PG로 바꾸면 재전송 루프를 부를 수 있다(지금은 재전송 없음). (d) 비밀 값의 최소 길이 검증이 BR3.2에는 없다("없거나 비어 있으면"만). | 웹훅 본문 상한을 정하고(예: 수 KB) 초과 시 400 또는 413으로 처리한다고 쓴다. 나머지는 의도된 프로토타입 한계라고 Assumptions에 적어 둔다. | New |
+| R-07 | Minor | aidlc/spaces/default/intents/261105-voice-parking/construction/u3-payment-service/functional-design/rules.md > BR1.3 | 같은 키 재요청에서 이전 요청과 다른 passId나 durationHours가 오는 경우(키 재사용 오용)를 U3가 어떻게 하는지 없다. u2가 어떻게 응답하든 U3는 기존 Payment의 값을 돌려줄 뿐 비교하지 않는다. 또 Payment가 이미 있고 모의 PG 요청 없이 끝난 경우(Payment 저장과 모의 PG 요청 사이의 예외)에는 "Payment가 있으면 그 paymentId를 쓴다"만 있어 모의 PG 요청이 영영 가지 않고 180초 뒤 취소로 끝난다. | BR1.3에 두 경우의 처리(불일치는 그대로 기존 결과 반환이라고 명시, Payment는 있으나 PgRequest가 없으면 이때 요청)를 한 줄로 정한다. 첫 번째 Major 항목의 원자성 규칙과 함께 정리하면 된다. | New |
+
+### Validation Tool Results
+
+| Tool | Result | Interpretation |
+|---|---|---|
+| 수동: 스토리 AC 대 traceability.json upstream_ids | PASS | stories.md에서 U3 스토리의 AC 11개(AC3.1.1~AC3.1.3, AC3.2.1~AC3.2.3, AC4.1.1~AC4.1.5)가 `"upstream_ids": ["AC3.1.1","AC3.1.2","AC3.1.3","AC3.2.1","AC3.2.2","AC3.2.3","AC4.1.1","AC4.1.2","AC4.1.3","AC4.1.4","AC4.1.5"]`에 모두 있고 `coverage`에 11개 행이 있다. |
+| 수동: OK 대상의 BR 존재 | PASS | OK 대상 BR1.2, BR2.1, BR1.4, BR1.3, BR3.5, BR1.5, BR3.7, BR3.4, BR3.1, BR3.2가 모두 rules.md의 `id`로 존재한다. N/A 행 AC3.1.2, AC3.2.3, AC4.1.4는 "delivered by u4-web-ui / u2-reservation-service"로 사유가 있다. |
+| 수동: 고아 규칙 | PASS | rules.md의 규칙 15개 중 coverage 대상에 나오지 않는 BR1.1, BR2.2, BR3.3, BR3.6, BR4.1, BR5.1은 모두 `reverse`에 N/A와 사유(FR, ADR, NFR 출처)가 있다. 설명 없는 고아는 없다. |
+| 수동: C2/C5/C6 정합 | PASS (확장 항목은 가정으로 표시됨) | 상태 코드(400/404/409/422/502, 401/200 handled 3종), 필드 이름, `X-Signature: sha256=<소문자 hex>`, `PAYMENT_WEBHOOK_SECRET`, eventId는 u2 반영 성공 뒤에만 기록은 C2/C6와 일치한다. C5 재시도(결제 반영 2초+200ms×2, 생성 재시도 없음)와 u2 code-summary의 확장(멱등 200이 임의 status, 반영 400)을 BR1.3, BR1.4, BR3.6이 반영했다. 200 응답에 PENDING_PAYMENT 외 status를 담는 것은 C2와 다른 확장으로 Assumptions에 명시되어 있다. |
+| 수동: entities 대 components.md | PASS | Payment/WebhookEvent의 속성 확장과 `ignored`→`handled` 변경, PgRequest 추가를 entities.md가 "components.md와 달라진 점"에 기록했다. 의미 충돌은 위 두 번째 Major(IGNORED 덮어쓰기)에서만 나타난다. |
+
+### Summary
+
+계약(C2, C5, C6)과 스토리·AC 추적은 일관되고 설계 근거도 대체로 명시되어 구현을 시작할 수 있다. 다만 결제 요청의 동시성(같은 키 동시 요청에서 Payment/모의 PG 중복)과 새 이벤트가 종결된 Payment에 올 때의 상태 처리, 두 가지는 승인 전에 확정해 두는 것이 좋다. 나머지는 150ms 예산의 측정 구간과 모의 PG의 시험 가능성 같은 정리 사항이다.

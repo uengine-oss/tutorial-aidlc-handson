@@ -1,0 +1,26 @@
+{
+  "stage": "functional-design",
+  "unit": "u3-payment-service",
+  "upstream_ids": ["AC3.1.1","AC3.1.2","AC3.1.3","AC3.2.1","AC3.2.2","AC3.2.3","AC4.1.1","AC4.1.2","AC4.1.3","AC4.1.4","AC4.1.5"],
+  "coverage": [
+    { "id": "AC3.1.1", "status": "OK", "target": "BR1.2, BR2.1" },
+    { "id": "AC3.1.2", "status": "N/A", "target": "승인 대기 표시는 delivered by u4-web-ui (예약 상태 PENDING_PAYMENT는 u2가 확정, 이 서비스는 202 PENDING_PAYMENT로 접수만 알린다)" },
+    { "id": "AC3.1.3", "status": "OK", "target": "BR1.4, BR1.3" },
+    { "id": "AC3.2.1", "status": "OK", "target": "BR2.1, BR3.5" },
+    { "id": "AC3.2.2", "status": "OK", "target": "BR1.5" },
+    { "id": "AC3.2.3", "status": "N/A", "target": "실패한 예약이 완료로 바뀌지 않는 것은 delivered by u2-reservation-service (종료 상태 불변)" },
+    { "id": "AC4.1.1", "status": "OK", "target": "BR3.5, BR3.7" },
+    { "id": "AC4.1.2", "status": "OK", "target": "BR3.4" },
+    { "id": "AC4.1.3", "status": "OK", "target": "BR3.1, BR3.2" },
+    { "id": "AC4.1.4", "status": "N/A", "target": "푸시 재연결과 현재 상태 재전송은 delivered by u2-reservation-service" },
+    { "id": "AC4.1.5", "status": "OK", "target": "BR3.5" }
+  ],
+  "reverse": [
+    { "id": "BR1.1", "status": "N/A", "target": "결제 요청 형식 검증이라는 기술적 검증 규칙 (FR4.1, FR8.1)" },
+    { "id": "BR2.2", "status": "N/A", "target": "모의 PG를 걷어낼 수 있게 하는 구조 규칙 (ADR-005)" },
+    { "id": "BR3.3", "status": "N/A", "target": "웹훅 형식·알려진 결제 확인이라는 기술적 검증 규칙 (FR5.2)" },
+    { "id": "BR3.6", "status": "N/A", "target": "u2 반영 실패 시 이벤트를 기록하지 않는 계약 C6 규칙 (FR5.2, FR7.1)" },
+    { "id": "BR4.1", "status": "N/A", "target": "금액을 u2가 확정한다는 계약 C5 규칙 (FR4.1)" },
+    { "id": "BR5.1", "status": "N/A", "target": "인메모리 저장소 제약 (NFR8)" }
+  ]
+}

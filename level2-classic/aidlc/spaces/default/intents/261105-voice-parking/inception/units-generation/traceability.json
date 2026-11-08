@@ -1,0 +1,14 @@
+{
+  "stage": "units-generation",
+  "upstream_ids": ["US1.1","US2.1","US2.2","US3.1","US3.2","US4.1","US4.2","US5.1"],
+  "coverage": [
+    { "id": "US1.1", "status": "OK", "target": "U1" },
+    { "id": "US2.1", "status": "OK", "target": "U1" },
+    { "id": "US2.2", "status": "OK", "target": "U1" },
+    { "id": "US3.1", "status": "OK", "target": "U2" },
+    { "id": "US3.2", "status": "OK", "target": "U3" },
+    { "id": "US4.1", "status": "OK", "target": "U2" },
+    { "id": "US4.2", "status": "OK", "target": "U2" },
+    { "id": "US5.1", "status": "OK", "target": "U5" }
+  ]
+}

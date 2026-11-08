@@ -1,0 +1,17 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: payment-service
+
+reservation:
+  # 예약 서비스 주소 (결제 승인 시 확정 요청을 보냄)
+  base-url: ${RESERVATION_BASE_URL:http://localhost:8083}
+  connect-timeout-ms: 2000
+  read-timeout-ms: 3000
+
+payment:
+  # 모의 PG가 비동기 웹훅을 보낼 주소(자기 자신)
+  webhook-url: ${PAYMENT_WEBHOOK_URL:http://localhost:8082/api/payments/webhook}
+  mock-pg-delay-ms: 300

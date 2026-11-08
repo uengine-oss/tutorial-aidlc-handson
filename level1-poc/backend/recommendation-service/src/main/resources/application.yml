@@ -1,0 +1,10 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: recommendation-service
+
+recommendation:
+  # 목적지 기준 후보 탐색 반경(미터)
+  radius-meters: 1000
