@@ -11,8 +11,8 @@ uEngine AX School 튜토리얼 **[Claude Code × AI-DLC 핸즈온](https://www.u
 
 | 폴더 | 튜토리얼 | AI-DLC 스코프 | 상태 |
 |---|---|---|---|
-| [`level1-poc/`](level1-poc/) | 레벨 1 · 1~4장 | `poc` (가장 짧은 경로) | 완료. 서비스 3개 + 화면 |
-| [`level2-classic/`](level2-classic/) | 레벨 2 · 5~14장 | `classic` (단계마다 문서와 승인) | 완료(COMPLETE). 유닛 5개 |
+| [`level1-poc/`](level1-poc/) | 레벨 1 · 5~8장 | `poc` (가장 짧은 경로) | 완료. 서비스 3개 + 화면 |
+| [`level2-classic/`](level2-classic/) | 레벨 2 · 9~18장 | `classic` (단계마다 문서와 승인) | 완료(COMPLETE). 유닛 5개 |
 
 두 폴더 모두 같은 구조입니다.
 
@@ -28,14 +28,16 @@ aidlc/spaces/default/
 
 ## 장별 산출물
 
+튜토리얼은 이론 1~4장으로 개념을 먼저 잡은 뒤 실습(5~18장)으로 이어집니다. 이론 장의 예시도 이 저장소의 파일을 가리킵니다.
+
 ### 레벨 1 · poc
 
 | 장 | 산출물 |
 |---|---|
-| [1. 설치와 프로젝트 준비](https://www.uengine.org/docs/aidlc-handson/setup.html) | [`memory/`](level1-poc/aidlc/spaces/default/memory/) |
-| [2. 의도 정리와 요구사항](https://www.uengine.org/docs/aidlc-handson/requirements.html) | [`ideation/intent-capture/`](level1-poc/aidlc/spaces/default/intents/261105-voice-parking/ideation/intent-capture/) · [`requirements.md`](level1-poc/aidlc/spaces/default/intents/261105-voice-parking/inception/requirements-analysis/requirements.md) |
-| [3. 코드 생성과 학습](https://www.uengine.org/docs/aidlc-handson/construction.html) | [`construction/code-generation/`](level1-poc/aidlc/spaces/default/intents/261105-voice-parking/construction/code-generation/) · [`backend/`](level1-poc/backend/) · [`frontend/`](level1-poc/frontend/) · [`project.md`](level1-poc/aidlc/spaces/default/memory/project.md) |
-| [4. 동작 확인과 감사 기록](https://www.uengine.org/docs/aidlc-handson/run.html) | [`RUN.md`](level1-poc/RUN.md) · [`audit/`](level1-poc/aidlc/spaces/default/intents/261105-voice-parking/audit/) |
+| [5. 설치와 프로젝트 준비](https://www.uengine.org/docs/aidlc-handson/setup.html) | [`memory/`](level1-poc/aidlc/spaces/default/memory/) |
+| [6. 의도 정리와 요구사항](https://www.uengine.org/docs/aidlc-handson/requirements.html) | [`ideation/intent-capture/`](level1-poc/aidlc/spaces/default/intents/261105-voice-parking/ideation/intent-capture/) · [`requirements.md`](level1-poc/aidlc/spaces/default/intents/261105-voice-parking/inception/requirements-analysis/requirements.md) |
+| [7. 코드 생성과 학습](https://www.uengine.org/docs/aidlc-handson/construction.html) | [`construction/code-generation/`](level1-poc/aidlc/spaces/default/intents/261105-voice-parking/construction/code-generation/) · [`backend/`](level1-poc/backend/) · [`frontend/`](level1-poc/frontend/) · [`project.md`](level1-poc/aidlc/spaces/default/memory/project.md) |
+| [8. 동작 확인과 감사 기록](https://www.uengine.org/docs/aidlc-handson/run.html) | [`RUN.md`](level1-poc/RUN.md) · [`audit/`](level1-poc/aidlc/spaces/default/intents/261105-voice-parking/audit/) |
 
 ### 레벨 2 · classic
 
@@ -43,16 +45,16 @@ aidlc/spaces/default/
 
 | 장 | 산출물 |
 |---|---|
-| [5. 개요와 1단계 팀 규칙](https://www.uengine.org/docs/aidlc-handson/l2-overview.html) | [`inception/practices-discovery/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/inception/practices-discovery/) · [`team.md`](level2-classic/aidlc/spaces/default/memory/team.md) |
-| [6. 2단계 요구사항](https://www.uengine.org/docs/aidlc-handson/l2-requirements.html) | [`inception/requirements-analysis/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/inception/requirements-analysis/) |
-| [7. 3·4단계 유저 스토리와 화면](https://www.uengine.org/docs/aidlc-handson/l2-stories.html) | [`inception/user-stories/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/inception/user-stories/) · [`inception/refined-mockups/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/inception/refined-mockups/) |
-| [8. 5단계 도메인 설계](https://www.uengine.org/docs/aidlc-handson/l2-domain.html) | [`inception/domain-design/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/inception/domain-design/) |
-| [9. 6·7단계 유닛과 API 계약](https://www.uengine.org/docs/aidlc-handson/l2-units.html) | [`inception/units-generation/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/inception/units-generation/) · [`inception/contract-design/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/inception/contract-design/) |
-| [10. 8단계 볼트 계획](https://www.uengine.org/docs/aidlc-handson/l2-bolts.html) | [`inception/delivery-planning/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/inception/delivery-planning/) |
-| [11. 구현: 유닛 u1](https://www.uengine.org/docs/aidlc-handson/l2-build.html) | [`construction/u1-search-service/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/construction/u1-search-service/) · [`services/u1-search-service/`](level2-classic/services/u1-search-service/) |
-| [12. 구현: 예약·결제 서비스(u2·u3)](https://www.uengine.org/docs/aidlc-handson/l2-build-services.html) | [`construction/u2-reservation-service/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/construction/u2-reservation-service/) · [`construction/u3-payment-service/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/construction/u3-payment-service/) · [`services/`](level2-classic/services/) |
-| [13. 구현: 화면·실행 스크립트(u4·u5)](https://www.uengine.org/docs/aidlc-handson/l2-build-ui-run.html) | [`construction/u4-web-ui/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/construction/u4-web-ui/) · [`construction/u5-local-run/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/construction/u5-local-run/) · [`services/u4-web-ui/`](level2-classic/services/u4-web-ui/) · [`scripts/`](level2-classic/scripts/) |
-| [14. 빌드·테스트와 앱 동작](https://www.uengine.org/docs/aidlc-handson/l2-test.html) | [`construction/build-and-test/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/construction/build-and-test/) |
+| [9. 개요와 1단계 팀 규칙](https://www.uengine.org/docs/aidlc-handson/l2-overview.html) | [`inception/practices-discovery/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/inception/practices-discovery/) · [`team.md`](level2-classic/aidlc/spaces/default/memory/team.md) |
+| [10. 2단계 요구사항](https://www.uengine.org/docs/aidlc-handson/l2-requirements.html) | [`inception/requirements-analysis/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/inception/requirements-analysis/) |
+| [11. 3·4단계 유저 스토리와 화면](https://www.uengine.org/docs/aidlc-handson/l2-stories.html) | [`inception/user-stories/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/inception/user-stories/) · [`inception/refined-mockups/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/inception/refined-mockups/) |
+| [12. 5단계 도메인 설계](https://www.uengine.org/docs/aidlc-handson/l2-domain.html) | [`inception/domain-design/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/inception/domain-design/) |
+| [13. 6·7단계 유닛과 API 계약](https://www.uengine.org/docs/aidlc-handson/l2-units.html) | [`inception/units-generation/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/inception/units-generation/) · [`inception/contract-design/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/inception/contract-design/) |
+| [14. 8단계 볼트 계획](https://www.uengine.org/docs/aidlc-handson/l2-bolts.html) | [`inception/delivery-planning/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/inception/delivery-planning/) |
+| [15. 구현: 유닛 u1](https://www.uengine.org/docs/aidlc-handson/l2-build.html) | [`construction/u1-search-service/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/construction/u1-search-service/) · [`services/u1-search-service/`](level2-classic/services/u1-search-service/) |
+| [16. 구현: 예약·결제 서비스(u2·u3)](https://www.uengine.org/docs/aidlc-handson/l2-build-services.html) | [`construction/u2-reservation-service/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/construction/u2-reservation-service/) · [`construction/u3-payment-service/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/construction/u3-payment-service/) · [`services/`](level2-classic/services/) |
+| [17. 구현: 화면·실행 스크립트(u4·u5)](https://www.uengine.org/docs/aidlc-handson/l2-build-ui-run.html) | [`construction/u4-web-ui/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/construction/u4-web-ui/) · [`construction/u5-local-run/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/construction/u5-local-run/) · [`services/u4-web-ui/`](level2-classic/services/u4-web-ui/) · [`scripts/`](level2-classic/scripts/) |
+| [18. 빌드·테스트와 앱 동작](https://www.uengine.org/docs/aidlc-handson/l2-test.html) | [`construction/build-and-test/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/construction/build-and-test/) |
 | [산출물 찾아보기](https://www.uengine.org/docs/aidlc-handson/artifacts.html) | [`aidlc-state.md`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/aidlc-state.md) · [`audit/`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/audit/) |
 
 레벨 2의 최종 판정은 [`build-and-test-summary.md`](level2-classic/aidlc/spaces/default/intents/261105-voice-parking/construction/build-and-test/build-and-test-summary.md)에 있습니다. 목표 22개 중 Met 17, Not Met 3, Unverified 2입니다. 맞추지 못한 목표도 낮추지 않고 그대로 기록했습니다.
@@ -74,7 +76,7 @@ bash scripts/run-local.sh                                     # 서비스 4개 �
 
 ## 이 저장소에 없는 것
 
-- `.claude/` — AI-DLC 프레임워크 사본(스킬, 훅, 에이전트)입니다. 직접 따라 하려면 [1장](https://www.uengine.org/docs/aidlc-handson/setup.html)처럼 `curl -fsSL https://github.com/awslabs/aidlc-workflows/releases/latest/download/install.sh | sh` 로 설치하고 `aidlc config --harness claude` 로 연결합니다.
+- `.claude/` — AI-DLC 프레임워크 사본(스킬, 훅, 에이전트)입니다. 직접 따라 하려면 [5장](https://www.uengine.org/docs/aidlc-handson/setup.html)처럼 `curl -fsSL https://github.com/awslabs/aidlc-workflows/releases/latest/download/install.sh | sh` 로 설치하고 `aidlc config --harness claude` 로 연결합니다.
 - `node_modules/`, `target/`, `dist/`, 실행 로그 — 빌드하면 다시 생깁니다.
 - AI-DLC가 내부용으로 무시하는 파일(`.aidlc-engine/`, 작업 커서 등) — 프로젝트의 `.gitignore` 를 따랐습니다.
 
